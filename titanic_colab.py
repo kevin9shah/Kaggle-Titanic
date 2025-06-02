@@ -82,10 +82,10 @@ model.compile(optimizer = 'adam', loss='binary_crossentropy', metrics=['accuracy
 model.fit(
     X_train,
     y_train,
-    epochs=50,         # number of times to loop over the data
-    batch_size=32,     # how many samples per gradient update
-    validation_split=0.2,  # use 20% of training data for validation
-    verbose=1          # show training progress
+    epochs=50,        
+    batch_size=32,    
+    validation_split=0.2, 
+    verbose=1         
 )
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
@@ -94,19 +94,7 @@ y_pred = (y_pred_prob > 0.5).astype(int)
 
 y_pred.shape
 
-# 2. Calculate metrics
-accuracy = accuracy_score(y_test, y_pred)
-precision = precision_score(y_test, y_pred)
-recall = recall_score(y_test, y_pred)
-f1 = f1_score(y_test, y_pred)
 
-# 3. Print them nicely
-print(f"Accuracy:  {accuracy:.4f}")
-print(f"Precision: {precision:.4f}")
-print(f"Recall:    {recall:.4f}")
-print(f"F1 Score:  {f1:.4f}")
-
-# 4. Optional: full classification report
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
@@ -125,25 +113,10 @@ model.fit(
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
 
-# Predict probabilities
 y_pred_prob = model.predict(X_test)
 
-# Convert to binary labels (threshold = 0.5)
 y_pred = (y_pred_prob > 0.5).astype(int)
 
-# Metrics
-accuracy = accuracy_score(y_test, y_pred)
-precision = precision_score(y_test, y_pred)
-recall = recall_score(y_test, y_pred)
-f1 = f1_score(y_test, y_pred)
-
-# Print metrics
-print(f"Accuracy:  {accuracy:.4f}")
-print(f"Precision: {precision:.4f}")
-print(f"Recall:    {recall:.4f}")
-print(f"F1 Score:  {f1:.4f}")
-
-# Optional: classification report
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
